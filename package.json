@@ -1,0 +1,61 @@
+{
+  "name": "cloudflare-axi",
+  "version": "0.1.0",
+  "description": "AXI-compliant Cloudflare CLI — DNS, Workers, R2, Email Routing, Workers AI, and Images usage over the official cloudflare SDK, multi-account profiles, token-efficient TOON output",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1955m/cloudflare-axi.git"
+  },
+  "keywords": [
+    "cloudflare",
+    "dns",
+    "workers",
+    "r2",
+    "cli",
+    "agent",
+    "axi",
+    "toon"
+  ],
+  "bin": {
+    "cloudflare-axi": "./dist/bin/cloudflare-axi.js"
+  },
+  "files": [
+    "dist",
+    "skills/cloudflare-axi",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc && chmod +x dist/bin/cloudflare-axi.js",
+    "build:skill": "node -e \"import('./dist/src/skill.js').then(m=>{const fs=require('fs');fs.mkdirSync('skills/cloudflare-axi',{recursive:true});fs.writeFileSync('skills/cloudflare-axi/SKILL.md',m.createSkillMarkdown()+'\\n');console.log('wrote skills/cloudflare-axi/SKILL.md');})\"",
+    "dev": "tsx bin/cloudflare-axi.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint . --max-warnings=0",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "docs:check": "pnpm run build:skill && git diff --exit-code -- skills/"
+  },
+  "license": "MIT",
+  "packageManager": "pnpm@11.9.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@toon-format/toon": "^2.1.0",
+    "axi-sdk-js": "^0.1.8",
+    "cloudflare": "^7.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.0.0",
+    "eslint": "^10.7.0",
+    "globals": "^17.7.0",
+    "prettier": "^3.3.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.64.0",
+    "vitest": "^3.0.0"
+  }
+}

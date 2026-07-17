@@ -1,0 +1,15 @@
+# Drafted community catalog entry for kunchenguid/axi `catalog.yaml`.
+#
+# NOT opened upstream yet (captain-gated, per design §11.4). This file is the
+# in-repo source of truth for the entry to submit to the catalog `community` list
+# when the captain approves the upstream PR. When submitting, append the block
+# below (minus these comments) to the `community:` list in
+# https://github.com/kunchenguid/axi/blob/main/catalog.yaml .
+- name: cloudflare-axi
+  url: https://github.com/1955m/cloudflare-axi
+  author: 1955m
+  domain: Cloudflare
+  description: >-
+    List zones, DNS records, Workers, R2 buckets, Email Routing rules, and Workers AI
+    models over the official Cloudflare TypeScript SDK — token-efficient TOON,
+    multi-account profiles, dry-run-by-default writes.
